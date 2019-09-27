@@ -1,0 +1,46 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+header {
+  margin: 12px;
+}
+
+main {
+  position: relative;
+  margin: 12px;
+  border-radius: 12px;
+  border: 2px dashed #95a5a6;
+  flex: 1 1 auto;
+  text-align: center;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: none;
+  align-items: center;
+
+  span {
+    font-size: 32px;
+  }
+
+  div {
+    line-height: 256px;
+    height: 256px;
+    width: 256px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -58%);
+    text-align: left;
+    filter: opacity(0.25);
+
+    mat-icon {
+      font-size: 256px;
+    }
+  }
+}
+
+footer {
+  text-align: center;
+}
