@@ -1,0 +1,11 @@
+<app-color-indicator *ngFor="let colorChoice of colors"
+     (press)="openChooseColor(color)"
+     (dblclick)="openChooseColor(color)"
+     [color]="colorChoice.color"
+     [highlight]="colorChoice.selected">
+</app-color-indicator>
+<div *ngIf="canAdd()"
+     class="add-new"
+     (click)="addNewColor()">
+  <mat-icon>add</mat-icon>
+</div>
