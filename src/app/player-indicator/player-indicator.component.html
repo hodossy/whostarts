@@ -2,5 +2,5 @@
        'background-color': player.assignedColor,
        'border-radius': 'inherit'
      }">
-  <span>{{ player.assignedOrder }}</span>
+  <span appContrast [backgroundColor]="player.assignedColor">{{ player.assignedOrder }}</span>
 </div>
