@@ -26,7 +26,6 @@ export class PlayerIndicatorComponent implements OnInit {
   constructor(private sanitizer: DomSanitizer, @Inject(INDICATOR_RADIUS) private radius: number) {}
 
   ngOnInit() {
-    console.log(this.player);
     const styleString = `width: ${this.radius * 2}px; height:  ${this.radius * 2}px; line-height: ${this.radius * 2 - 4}px; border-radius: ${this.radius}px; top: ${this.player.center.y}px; left: ${this.player.center.x}px`
     this.style = this.sanitizer.bypassSecurityTrustStyle(styleString);
   }

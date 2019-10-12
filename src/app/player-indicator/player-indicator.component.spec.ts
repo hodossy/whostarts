@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PlayerIndicatorComponent } from './player-indicator.component';
+import { PlayerIndicatorComponent, INDICATOR_RADIUS } from './player-indicator.component';
 
 fdescribe('PlayerIndicatorComponent', () => {
   let component: PlayerIndicatorComponent;
@@ -8,7 +8,10 @@ fdescribe('PlayerIndicatorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PlayerIndicatorComponent ]
+      declarations: [ PlayerIndicatorComponent ],
+      providers: [
+        { provide: INDICATOR_RADIUS, useValue: 10 }
+      ]
     })
     .compileComponents();
   }));
@@ -16,11 +19,23 @@ fdescribe('PlayerIndicatorComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PlayerIndicatorComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
     component.player = {center: {x: 150, y: 150}, assignedColor: 'red', assignedOrder: 2}
+    fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should assign proper styles to host', () => {
+    const expectedStyles = {
+      'width': '20px',
+      'height': '20px',
+      'line-height': '16px',
+      'border-radius': '10px',
+      'top': '150px',
+      'left': '150px',
+    }
+    expect(fixture.debugElement.styles).toEqual(expectedStyles);
   });
 });
