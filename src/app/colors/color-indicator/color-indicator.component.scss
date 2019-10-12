@@ -1,0 +1,16 @@
+div {
+  line-height: 24px;
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #95a5a6;
+  border-radius: 4px;
+  margin: 2px;
+  display: inline-block;
+  cursor: pointer;
+  filter: grayscale(75%);
+
+  &.highlight {
+    filter: none;
+  }
+}
