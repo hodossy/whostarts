@@ -1,0 +1,11 @@
+<section>
+  <mat-form-field>
+    <input matInput type="number" name="countdown" placeholder="Countdown" [(ngModel)]="settings.countdown">
+    <span matSuffix>sec</span>
+  </mat-form-field>
+  <mat-checkbox [(ngModel)]="settings.order">Show Order</mat-checkbox>
+  <mat-checkbox [(ngModel)]="settings.chooseColor">Assign Color</mat-checkbox>
+  <app-color-selection *ngIf="settings.chooseColor"
+                       [colors]="settings.colors">
+  </app-color-selection>
+</section>
