@@ -1,12 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ColorChoice } from '../colors';
-
-export interface Settings {
-  order: boolean;
-  chooseColor: boolean;
-  colors: Array<ColorChoice>;
-  countdown: number;
-}
+import { Component, OnInit } from '@angular/core';
+import { SettingsService } from './settings.service';
 
 @Component({
   selector: 'app-settings',
@@ -14,7 +7,10 @@ export interface Settings {
   styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
-  @Input() settings: Settings;
+
+  constructor(
+    public settings: SettingsService
+  ) { }
 
   ngOnInit() {
   }

@@ -1,15 +1,15 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-color-indicator',
   templateUrl: './color-indicator.component.html',
   styleUrls: ['./color-indicator.component.scss']
 })
-export class ColorIndicatorComponent implements OnInit {
+export class ColorIndicatorComponent {
   @Input() color: string;
-  @Input() highlight: string;
+  @Input() highlight: boolean;
 
-  ngOnInit() {
+  onClick(event: any) {
+    this.highlight = !this.highlight;
   }
-
 }

@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { ContrastDirective } from '../contrast.directive';
 import { PlayerIndicatorComponent, INDICATOR_RADIUS } from './player-indicator.component';
 
 fdescribe('PlayerIndicatorComponent', () => {
@@ -8,7 +9,7 @@ fdescribe('PlayerIndicatorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PlayerIndicatorComponent ],
+      declarations: [ ContrastDirective, PlayerIndicatorComponent ],
       providers: [
         { provide: INDICATOR_RADIUS, useValue: 10 }
       ]

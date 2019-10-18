@@ -1,5 +1,5 @@
 <div class="color-indicator"
-     (tap)="highlight=!highlight;"
+     (tap)="onClick($event)"
      [ngStyle]="{'background-color': color}"
      [class.mat-elevation-z8]="highlight"
      [class.highlight]="highlight">
