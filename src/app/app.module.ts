@@ -17,6 +17,8 @@ import { SettingsComponent } from './settings/settings.component';
 import { ColorIndicatorComponent } from './colors/color-indicator/color-indicator.component';
 import { ColorSelectionComponent } from './colors/color-selection/color-selection.component';
 import { ColorPickerComponent } from './colors/color-picker/color-picker.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { ColorPickerComponent } from './colors/color-picker/color-picker.compone
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   entryComponents: [
     SettingsComponent,
