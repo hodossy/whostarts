@@ -1,9 +1,9 @@
 {
-  "name": "whostarts",
+  "name": "Who Starts?",
   "short_name": "whostarts",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
-  "display": "standalone",
+  "theme_color": "#e91e63",
+  "background_color": "#2c3e50",
+  "display": "fullscreen",
   "scope": "/",
   "start_url": "/",
   "icons": [

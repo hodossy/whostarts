@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ColorChoice } from '..';
 
 @Component({
   selector: 'app-color-indicator',
@@ -6,10 +7,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./color-indicator.component.scss']
 })
 export class ColorIndicatorComponent {
-  @Input() color: string;
-  @Input() highlight: boolean;
+  @Input('color') choice: ColorChoice;
 
   onClick(event: any) {
-    this.highlight = !this.highlight;
+    this.choice.selected = !this.choice.selected;
   }
 }
