@@ -3,8 +3,6 @@
      (dblclick)="openChooseColor()"
      [color]="colorChoice">
 </app-color-indicator>
-<div *ngIf="canAdd()"
-     class="add-new"
-     (click)="addNewColor()">
+<button mat-icon-button *ngIf="canAdd()" type="button" name="add" (click)="addNewColor()">
   <mat-icon>add</mat-icon>
-</div>
+</button>

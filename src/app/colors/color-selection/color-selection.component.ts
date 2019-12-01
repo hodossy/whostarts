@@ -20,7 +20,8 @@ export class ColorSelectionComponent {
   }
 
   canAdd(): boolean {
-    return this.colors.length === 0 || this.colors[this.colors.length - 1].color != undefined;
+    // TODO: remove false when color selection is implemented
+    return false && (this.colors.length === 0 || this.colors[this.colors.length - 1].color != undefined);
   }
 
   openChooseColor() {
