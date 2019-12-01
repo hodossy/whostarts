@@ -10,7 +10,7 @@ export interface PlayerIndicator {
 
 export const INDICATOR_RADIUS = new InjectionToken<number>('Indicator radius', {
   providedIn: 'root',
-  factory: () => 25
+  factory: () => 50
 });
 
 @Component({
