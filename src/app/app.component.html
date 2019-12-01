@@ -18,7 +18,7 @@
   <div *ngIf="!finished; else results">
     <span class="timer mat-display-4" *ngIf="timer | async as timer; else instructions">{{ timer }}</span>
     <ng-template #instructions>
-      <span class="mat-display-1">Place at least<br/>two fingers<br/>here...</span>
+      <span class="mat-display-1">Tap to add or <br> remove players</span>
     </ng-template>
     <div class="center" style="text-align: left;">
       <mat-icon>touch_app</mat-icon>
@@ -26,7 +26,7 @@
   </div>
   <ng-template #results>
     <div class="center" style="filter: none; -webkit-filter: none">
-      <button mat-raised-button type="button" color="accent"
+      <button mat-raised-button type="button" color="accent" class="reset"
               name="reset" (click)="reset($event)">
         Reset
       </button>
