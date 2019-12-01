@@ -3,10 +3,15 @@
   transform: translate(-50%, -50%);
   border: 2px solid #95a5a6;
   box-sizing: border-box;
+  display: flex;
 
   &.first {
     background-color: rgba(149, 165, 166, 0.5);
   }
+}
+
+div {
+  width: 100%;
 }
 
 span {
