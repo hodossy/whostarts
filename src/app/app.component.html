@@ -16,9 +16,9 @@
     <span>{{ player.assignedOrder }}</span>
   </app-player-indicator>
   <div *ngIf="!finished; else results">
-    <span class="timer" *ngIf="timer | async as timer; else instructions">{{ timer }}</span>
+    <span class="timer mat-display-4" *ngIf="timer | async as timer; else instructions">{{ timer }}</span>
     <ng-template #instructions>
-      <span>Place at least<br/>two fingers<br/>here...</span>
+      <span class="mat-display-1">Place at least<br/>two fingers<br/>here...</span>
     </ng-template>
     <div class="center" style="text-align: left;">
       <mat-icon>touch_app</mat-icon>
