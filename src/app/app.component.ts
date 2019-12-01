@@ -103,8 +103,10 @@ export class AppComponent {
   }
 
   stopCountdown() {
-    this.countdownSubscription.unsubscribe();
-    this.timer.next(0);
+    if (this.countdownSubscription) {
+      this.countdownSubscription.unsubscribe();
+      this.timer.next(0);
+    }
   }
 
   reset(event: any) {
