@@ -23,6 +23,8 @@ export const DEFAULT_SETTINGS = new InjectionToken<Settings>('Default settings c
         {color: 'brown', selected: true},
         {color: 'yellow', selected: true},
         {color: 'gray', selected: true},
+        {color: 'white', selected: true},
+        {color: 'orange', selected: true},
       ]
   }}
 })

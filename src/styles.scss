@@ -19,7 +19,7 @@ $whostarts-typography: mat-typography-config(
   $body-2:        mat-typography-level(14px, 24px, 500),
   $body-1:        mat-typography-level(14px, 20px, 400),
   $caption:       mat-typography-level(12px, 20px, 400),
-  $button:        mat-typography-level(34px, 40px, 500),
+  $button:        mat-typography-level(24px, 32px, 500),
   // Line-height must be unit-less fraction of the font-size.
   $input:         mat-typography-level(inherit, 1.125, 400)
 );
