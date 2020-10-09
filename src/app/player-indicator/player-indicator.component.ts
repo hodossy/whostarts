@@ -3,6 +3,7 @@ import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { Point } from '../utils';
 
 export interface PlayerIndicator {
+  id: number;
   center: Point;
   assignedOrder?: number;
   assignedColor?: string;

@@ -38,19 +38,23 @@ export class AppComponent {
     this.removePlayer(event.center);
   }
 
-  addPlayer(center: Point) {
-    this.players.push({ center: center });
+  addPlayer(center: Point, id: number) {
+    const playerIndex = this.findPlayer(center);
+    if (playerIndex === -1 ) {
+      this.players.push({ id, center });
+    }
     if (this.players.length > 1) {
       this.startCountdown();
     }
   }
 
-  removePlayer(center: Point) {
-    const playerIndex = this.findPlayer(center);
-    if (playerIndex > -1) {
-      this.players.splice(playerIndex, 1);
+  removePlayer(id: number) {
+    this.players = this.players.filter(player => player.id !== id);
+    if (this.players.length > 1) {
+      this.startCountdown();
+    } else {
+      this.stopCountdown();
     }
-    if (this.players.length < 3) this.stopCountdown();
   }
 
   findPlayer(at: Point): number {
@@ -59,14 +63,19 @@ export class AppComponent {
     });
   }
 
-  onClick(event: any) {
+  getNextId(): number {
+    return Math.max(-1, ...this.players.map(player => player.id)) + 1
+  }
+
+  onClick(event: MouseEvent) {
     if ( this.finished ) return;
     const center = { x: event.clientX, y: event.clientY };
     const playerIndex = this.findPlayer(center);
+    const id = this.getNextId();
     if (playerIndex === -1) {
-      this.addPlayer(center);
+      this.addPlayer(center, id);
     } else {
-      this.removePlayer(center);
+      this.removePlayer(this.players[playerIndex].id);
     }
   }
 
@@ -87,6 +96,13 @@ export class AppComponent {
     });
   }
 
+  stopCountdown() {
+    if (this.countdownSubscription) {
+      this.countdownSubscription.unsubscribe();
+      this.timer.next(0);
+    }
+  }
+
   randomize() {
     this.players = shuffleArray<PlayerIndicator>(this.players);
     if(this.settings.order) {
@@ -99,13 +115,6 @@ export class AppComponent {
       this.players.map((player, idx) => {
         player.assignedColor = colors[idx].color;
       });
-    }
-  }
-
-  stopCountdown() {
-    if (this.countdownSubscription) {
-      this.countdownSubscription.unsubscribe();
-      this.timer.next(0);
     }
   }
 
