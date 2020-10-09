@@ -4,8 +4,8 @@ section {
 
 .controls {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: baseline;
 }
 
 .mat-caption {
