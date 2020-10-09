@@ -1,0 +1,28 @@
+name: Deploy to GitHub Pages via angular-cli-ghpages
+
+on:
+  push:
+    tags:
+      *.*.*
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Use Node.js 14.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14.x
+
+    - name: Prepare and deploy
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        WHOSTARTS_VERSION: ${{ github.ref }}
+      run: |
+        sed -i -E s/'("version": )"(.*)"\,'/"\1\"$WHOSTARTS_VERSION\"\,"/g package.json
+        npm ci
+        npm run ng -- deploy

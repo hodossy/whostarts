@@ -35,6 +35,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/whostarts/",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -125,8 +126,13 @@
               "devServerTarget": "whostarts:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "whostarts"
 }
