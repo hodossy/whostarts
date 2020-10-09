@@ -3,35 +3,58 @@
     Who starts?
   </h2>
   <span class="expand"></span>
-  <button mat-icon-button type="button" name="settings" (click)="openSettings()">
+  <button
+    mat-icon-button
+    type="button"
+    name="settings"
+    (click)="openSettings()"
+  >
     <mat-icon>more_vert</mat-icon>
   </button>
 </header>
-<main (panup)="openSettings()"
-      (press)="onPress($event)"
-      (pressUp)="onPressUp($event)"
-      (click)="onClick($event)">
-  <app-player-indicator *ngFor="let player of players; first as isFirst;" [player]="player"
-       [class.first]="!settings.chooseColor && isFirst && finished">
+<main
+  (touchstart)="onTouchStart($event)"
+  (touchend)="onTouchEnd($event)"
+  (touchmove)="onTouchMove($event)"
+  (touchcancel)="onTouchEnd($event)"
+  (click)="onClick($event)"
+>
+  <app-player-indicator
+    *ngFor="let player of players; first as isFirst"
+    [player]="player"
+    [class.first]="!settings.chooseColor && isFirst && finished"
+  >
     <span>{{ player.assignedOrder }}</span>
   </app-player-indicator>
   <div *ngIf="!finished; else results">
-    <span class="timer mat-display-4" *ngIf="timer | async as timer; else instructions">{{ timer }}</span>
+    <span
+      class="timer mat-display-4"
+      *ngIf="timer | async as timer; else instructions"
+      >{{ timer }}</span
+    >
     <ng-template #instructions>
-      <span class="mat-display-1">Tap to add or <br> remove players</span>
+      <span class="mat-display-1"
+        >Tap to add or <br />
+        remove players</span
+      >
     </ng-template>
     <div class="center" style="text-align: left;">
       <mat-icon>touch_app</mat-icon>
     </div>
   </div>
   <ng-template #results>
-    <div class="center" style="filter: none; -webkit-filter: none">
-      <button mat-raised-button type="button" color="accent" class="reset"
-              name="reset" (click)="reset($event)">
+    <div class="center" style="filter: none; -webkit-filter: none;">
+      <button
+        mat-raised-button
+        type="button"
+        color="accent"
+        class="reset"
+        name="reset"
+        (click)="reset($event)"
+      >
         Reset
       </button>
     </div>
   </ng-template>
 </main>
-<footer>
-</footer>
+<footer></footer>

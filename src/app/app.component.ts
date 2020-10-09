@@ -24,18 +24,39 @@ export class AppComponent {
     @Inject(INDICATOR_RADIUS) private radius: number
   ) {}
 
-  onPress(event: any) {
-    if(event.pointerType !== "touch" && !this.finished) {
+  onTouchStart(event: TouchEvent) {
+    if(this.finished) {
       return;
     }
-    this.addPlayer(event.center);
+    event.preventDefault();
+    for (let i=0; i < event.changedTouches.length; i++) {
+      const touch = event.changedTouches[i];
+      const center: Point = { x: touch.clientX, y: touch.clientY };
+      this.addPlayer(center, touch.identifier);
+    }
   }
 
-  onPressUp(event: any) {
-    if (event.pointerType !== "touch" && !this.finished) {
+  onTouchEnd(event: TouchEvent) {
+    if(this.finished) {
       return;
     }
-    this.removePlayer(event.center);
+    event.preventDefault();
+    for (let i=0; i < event.changedTouches.length; i++) {
+      const touch = event.changedTouches[i];
+      this.removePlayer(touch.identifier);
+    }
+  }
+
+  onTouchMove(event: TouchEvent) {
+    if(this.finished) {
+      return;
+    }
+    event.preventDefault();
+    for (let i=0; i < event.changedTouches.length; i++) {
+      const touch = event.changedTouches[i];
+      const center: Point = { x: touch.clientX, y: touch.clientY };
+      this.movePlayer(center, touch.identifier);
+    }
   }
 
   addPlayer(center: Point, id: number) {
@@ -60,6 +81,15 @@ export class AppComponent {
   findPlayer(at: Point): number {
     return this.players.findIndex((player) => {
       return distance(player.center, at) < this.radius;
+    });
+  }
+
+  movePlayer(center: Point, id: number) {
+    this.players = this.players.map(player => {
+      if (player.id === id) {
+        return { ...player, center };
+      }
+      return player;
     });
   }
 
