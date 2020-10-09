@@ -1,3 +1,7 @@
+:host {
+  display: block;
+}
+
 div {
   line-height: 48px;
   font-size: 48px;
@@ -5,12 +9,23 @@ div {
   height: 48px;
   border: 2px solid #95a5a6;
   border-radius: 50%;
-  margin: 4px;
   display: inline-block;
   cursor: pointer;
-  filter: grayscale(75%);
 
-  &.highlight {
-    filter: none;
+  &.removed {
+    filter: grayscale(50%);
+    position: relative;
+
+    &::after {
+      position: absolute;
+      top: -1px;
+      bottom: 0;
+      left: 0;
+      right: -1px;
+      content: "\d7"; /* multiplication sign */
+      color: #ccc;
+      text-align: center;
+      filter: none;
+    }
   }
 }

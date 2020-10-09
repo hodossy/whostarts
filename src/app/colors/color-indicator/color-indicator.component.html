@@ -2,5 +2,5 @@
      (click)="onClick($event)"
      [ngStyle]="{'background-color': choice.color}"
      [class.mat-elevation-z8]="choice.selected"
-     [class.highlight]="choice.selected">
+     [class.removed]="!choice.selected">
 </div>
