@@ -23,13 +23,14 @@ jobs:
       uses: actions/github-script@v3
       with:
         script: |
-          const version = github.ref.substr(10);
-          core.setOutput('version', version);
+          const version = context.ref.substr(10);
+          const sha = context.sha.substr(0, 10);
+          core.setOutput('version', `${version}+${sha}`);
 
     - name: Prepare and deploy
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         npm ci
-        sed -i -E s/"(\"version\": )\"(.*)\"\,"/"\1\"${{ steps.get-version.outputs.version }}\"\,"/g package.json
+        sed -i -E s/"(const version = )'(.*)';"/"\1'${{ steps.get-version.outputs.version }}';"/g src/environments/environment.prod.ts
         npm run ng -- deploy

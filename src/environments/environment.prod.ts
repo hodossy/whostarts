@@ -1,4 +1,4 @@
-import { version } from '../../package.json';
+const version = '1.0.0';
 
 export const environment = {
   production: true,
