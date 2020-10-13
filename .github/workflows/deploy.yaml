@@ -28,6 +28,7 @@ jobs:
           const lastSlashIndex = context.ref.lastIndexOf('/');
           const version = context.ref.substr(lastSlashIndex);
           const sha = context.sha.substr(0, 10);
+          console.log(`Parsed version: ${version}+${sha}`);
           core.setOutput('version', `${version}+${sha}`);
 
     - name: Prepare and deploy
