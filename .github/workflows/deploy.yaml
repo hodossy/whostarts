@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages via angular-cli-ghpages
 on:
   push:
     tags:
-      *.*.*
+      - '*.*.*'
 
 jobs:
   build-and-deploy:
