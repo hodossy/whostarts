@@ -36,7 +36,7 @@ export class SettingsService {
   order: boolean;
   chooseColor: boolean;
   colors: Array<ColorChoice>;
-  countdown: number;
+  private _countdown: number;
 
   constructor(
     @Inject(DEFAULT_SETTINGS) _default: Settings
@@ -45,5 +45,17 @@ export class SettingsService {
     this.chooseColor = _default.chooseColor;
     this.countdown = _default.countdown;
     this.colors = _default.colors;
+  }
+
+  get countdown() {
+    return this._countdown;
+  }
+
+  set countdown(val: number) {
+    if (val && val > 3) {
+      this._countdown = val;
+    } else {
+      this._countdown = 3;
+    }
   }
 }
