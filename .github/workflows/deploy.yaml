@@ -22,6 +22,6 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        sed -i -E s/"(\"version\": )\"(.*)\"\,"/"\1\"${{ github.ref }}\"\,"/g package.json
         npm ci
+        sed -i -E s/"(\"version\": )\"(.*)\"\,"/"\1\"${{ github.ref }}\"\,"/g package.json
         npm run ng -- deploy
