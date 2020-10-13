@@ -40,7 +40,7 @@ import { environment } from '../environments/environment';
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production, scope: '/whostarts' }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production, scope: '/whostarts/' }),
   ],
   entryComponents: [
     SettingsComponent,
