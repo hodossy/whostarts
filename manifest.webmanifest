@@ -1,7 +1,7 @@
 {
   "name": "Who Starts?",
   "short_name": "Whostarts",
-  "description": "A small app to help start games."
+  "description": "A small app to help start games.",
   "theme_color": "#e91e63",
   "background_color": "#2c3e50",
   "display": "fullscreen",
