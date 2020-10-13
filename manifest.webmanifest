@@ -5,8 +5,8 @@
   "theme_color": "#e91e63",
   "background_color": "#2c3e50",
   "display": "fullscreen",
-  "scope": "/",
-  "start_url": "/whostarts",
+  "scope": "/whostarts/",
+  "start_url": "/whostarts/",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
