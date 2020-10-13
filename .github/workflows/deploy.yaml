@@ -25,7 +25,7 @@ jobs:
       uses: actions/github-script@v3
       with:
         script: |
-          const lastSlashIndex = context.ref.lastIndexOf('/');
+          const lastSlashIndex = context.ref.lastIndexOf('/') + 1;
           const version = context.ref.substr(lastSlashIndex);
           const sha = context.sha.substr(0, 10);
           console.log(`Parsed version: ${version}+${sha}`);
