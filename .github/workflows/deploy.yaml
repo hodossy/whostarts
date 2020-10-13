@@ -4,8 +4,6 @@ on:
   push:
     tags:
       - '*.*.*'
-    branches:
-      - master
 
 jobs:
   build-and-deploy:
@@ -37,4 +35,4 @@ jobs:
       run: |
         npm ci
         sed -i -E s/"(const version = )'(.*)';"/"\1'${{ steps.get-version.outputs.version }}';"/g src/environments/environment.prod.ts
-        npm run ng -- deploy --no-silent
+        npm run ng -- deploy --name="Hodossy, Szabolcs" --email="no-reply@actions.com"
