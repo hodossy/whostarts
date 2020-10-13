@@ -25,7 +25,8 @@ jobs:
       uses: actions/github-script@v3
       with:
         script: |
-          const version = context.ref.substr(10);
+          const lastSlashIndex = context.ref.lastIndexOf('/');
+          const version = context.ref.substr(lastSlashIndex);
           const sha = context.sha.substr(0, 10);
           core.setOutput('version', `${version}+${sha}`);
 
