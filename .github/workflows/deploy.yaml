@@ -21,8 +21,7 @@ jobs:
     - name: Prepare and deploy
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        WHOSTARTS_VERSION: ${{ github.ref }}
       run: |
-        sed -i -E s/'("version": )"(.*)"\,'/"\1\"$WHOSTARTS_VERSION\"\,"/g package.json
+        sed -i -E s/"(\"version\": )\"(.*)\"\,"/"\1\"${{ github.ref }}\"\,"/g package.json
         npm ci
         npm run ng -- deploy
