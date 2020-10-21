@@ -11,21 +11,14 @@ div {
   border-radius: 50%;
   display: inline-block;
   cursor: pointer;
+  position: relative;
 
-  &.removed {
-    filter: grayscale(50%);
-    position: relative;
-
-    &::after {
-      position: absolute;
-      top: -1px;
-      bottom: 0;
-      left: 0;
-      right: -1px;
-      content: "\d7"; /* multiplication sign */
-      color: #ecf0f1;
-      text-align: center;
-      filter: none;
-    }
+  .removed {
+    position: absolute;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    right: 0px;
+    text-align: center;
   }
 }

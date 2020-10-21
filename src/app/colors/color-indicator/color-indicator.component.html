@@ -1,6 +1,14 @@
-<div class="color-indicator"
-     (click)="onClick($event)"
-     [ngStyle]="{'background-color': choice.color}"
-     [class.mat-elevation-z8]="choice.selected"
-     [class.removed]="!choice.selected">
+<div
+  class="color-indicator"
+  (click)="onClick($event)"
+  [ngStyle]="{ background: choice.color }"
+  [class.mat-elevation-z8]="choice.selected"
+>
+  <span
+    class="removed"
+    *ngIf="!choice.selected"
+    appContrast
+    [backgroundColor]="choice.color"
+    >&times;</span
+  >
 </div>
