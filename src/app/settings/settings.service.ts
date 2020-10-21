@@ -16,17 +16,30 @@ export const DEFAULT_SETTINGS = new InjectionToken<Settings>('Default settings c
       chooseColor: true,
       countdown: 3,
       colors: [
-        {color: 'red', selected: true},
-        {color: 'green', selected: true},
-        {color: 'blue', selected: true},
-        {color: 'black', selected: true},
-        {color: 'brown', selected: true},
-        {color: 'yellow', selected: true},
-        {color: 'gray', selected: true},
-        {color: 'white', selected: true},
-        {color: 'orange', selected: true},
+        { color: 'white', selected: true },
+        { color: 'blue', selected: true },
+        { color: 'green', selected: true },
+        { color: 'yellow', selected: true },
+        { color: 'orange', selected: true },
+        { color: 'red', selected: true },
+        { color: 'maroon', selected: true },
+        { color: 'gray', selected: true },
+        { color: 'black', selected: true },
+        {
+          color: `conic-gradient(white 40deg,
+                  blue 40deg 80deg,
+                  green 80deg 120deg,
+                  yellow 120deg 160deg,
+                  orange 160deg 200deg,
+                  red 200deg 240deg,
+                  maroon 240deg 280deg,
+                  gray 280deg 320deg,
+                  black 320deg 360deg)`,
+          selected: true
+        },
       ]
-  }}
+    }
+  }
 })
 
 @Injectable({
