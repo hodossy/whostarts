@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ContrastDirective } from '../contrast.directive';
 import { PlayerIndicatorComponent, INDICATOR_RADIUS } from './player-indicator.component';
@@ -7,7 +7,7 @@ fdescribe('PlayerIndicatorComponent', () => {
   let component: PlayerIndicatorComponent;
   let fixture: ComponentFixture<PlayerIndicatorComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ContrastDirective, PlayerIndicatorComponent ],
       providers: [

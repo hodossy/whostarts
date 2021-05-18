@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ColorIndicatorComponent } from './color-indicator.component';
 
@@ -6,7 +6,7 @@ describe('ColorIndicatorComponent', () => {
   let component: ColorIndicatorComponent;
   let fixture: ComponentFixture<ColorIndicatorComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ColorIndicatorComponent ]
     })
