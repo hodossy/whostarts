@@ -6,8 +6,8 @@ import { colorToRGBA, contrast } from './utils';
   selector: '[appContrast]'
 })
 export class ContrastDirective implements OnChanges {
-  @HostBinding('style.color') hostColor: string;
-  @Input('backgroundColor') hostBackgroundColor: string;
+  @HostBinding('style.color') hostColor!: string;
+  @Input('backgroundColor') hostBackgroundColor: string | undefined;
 
   ngOnChanges() {
     if(this.hostBackgroundColor) {

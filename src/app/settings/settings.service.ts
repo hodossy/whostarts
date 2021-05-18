@@ -41,10 +41,10 @@ export const DEFAULT_SETTINGS = new InjectionToken<Settings>(
   providedIn: "root",
 })
 export class SettingsService {
-  order: boolean;
-  chooseColor: boolean;
-  colors: Array<ColorChoice>;
-  private _countdown: number;
+  order!: boolean;
+  chooseColor!: boolean;
+  colors!: Array<ColorChoice>;
+  private _countdown!: number;
   private _default: Settings;
   private _localStorageKey = "settings";
 

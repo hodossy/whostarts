@@ -20,9 +20,9 @@ export const INDICATOR_RADIUS = new InjectionToken<number>('Indicator radius', {
   styleUrls: ['./player-indicator.component.scss']
 })
 export class PlayerIndicatorComponent implements OnInit {
-  @Input() player: PlayerIndicator;
+  @Input() player!: PlayerIndicator;
 
-  @HostBinding('style') style: SafeStyle;
+  @HostBinding('style') style: SafeStyle | undefined;
 
   constructor(
     private sanitizer: DomSanitizer,

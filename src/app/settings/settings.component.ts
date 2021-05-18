@@ -18,5 +18,4 @@ export class SettingsComponent implements OnDestroy {
   ngOnDestroy() {
     this.settings.saveSettings();
   }
-
 }

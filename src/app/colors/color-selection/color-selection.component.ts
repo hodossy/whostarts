@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 export interface ColorChoice {
-  color: string;
+  color: string | undefined;
   selected: boolean;
 }
 

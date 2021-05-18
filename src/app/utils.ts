@@ -39,6 +39,10 @@ export function colorToRGBA(col: string): Array<number> {
   canvas.width = canvas.height = 1;
   const ctx = canvas.getContext('2d');
 
+  if (!ctx) {
+    throw new Error('2DRenderingContext not available');
+  }
+
   ctx.clearRect(0, 0, 1, 1);
   // In order to detect invalid values,
   // we can't rely on col being in the same format as what fillStyle is computed as,
@@ -49,7 +53,7 @@ export function colorToRGBA(col: string): Array<number> {
   ctx.fillStyle = '#fff';
   ctx.fillStyle = col;
   if (computed !== ctx.fillStyle) {
-      return; // invalid color
+    throw new Error(`Invalid computed color: ${ctx.fillStyle}`);
   }
   ctx.fillRect(0, 0, 1, 1);
   return [ ... ctx.getImageData(0, 0, 1, 1).data ];

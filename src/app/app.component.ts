@@ -14,7 +14,7 @@ import { SettingsService, SettingsComponent } from './settings';
 })
 export class AppComponent {
   finished = false;
-  countdownSubscription: Subscription;
+  countdownSubscription: Subscription | undefined;
   timer: BehaviorSubject<number> = new BehaviorSubject(0);
   players: Array<PlayerIndicator> = [];
 
@@ -121,7 +121,7 @@ export class AppComponent {
       } else {
         this.finished = true;
         this.randomize()
-        this.countdownSubscription.unsubscribe();
+        this.countdownSubscription!.unsubscribe();
       }
     });
   }

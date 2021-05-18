@@ -7,9 +7,9 @@ import { ColorChoice } from '..';
   styleUrls: ['./color-indicator.component.scss']
 })
 export class ColorIndicatorComponent {
-  @Input('color') choice: ColorChoice;
+  @Input('color') choice!: ColorChoice;
 
-  onClick(event: any) {
+  onClick(_: MouseEvent) {
     this.choice.selected = !this.choice.selected;
   }
 }
