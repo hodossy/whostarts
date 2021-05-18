@@ -4,7 +4,7 @@ export interface Point {
 }
 
 export function distance(p1: Point, p2: Point): number {
-  return Math.sqrt((p1.x - p2.x) ** 2 + (p1.y - p2.y) ** 2)
+  return Math.sqrt((p1.x - p2.x) ** 2 + (p1.y - p2.y) ** 2);
 }
 
 export function shuffleArray<T>(array: Array<T>): Array<T> {
@@ -19,19 +19,19 @@ export function shuffleArray<T>(array: Array<T>): Array<T> {
 }
 
 export function luminance(r: number, g: number, b: number): number {
-    var colorArray = [r, g, b];
-    var colorFactor: number;
-    var i: number;
-    for (i = 0; i < colorArray.length; i++) {
-        colorFactor = colorArray[i] / 255;
-        if (colorFactor <= 0.03928) {
-            colorFactor = colorFactor / 12.92;
-        } else {
-            colorFactor = Math.pow(((colorFactor + 0.055) / 1.055), 2.4);
-        }
-        colorArray[i] = colorFactor;
+  var colorArray = [r, g, b];
+  var colorFactor: number;
+  var i: number;
+  for (i = 0; i < colorArray.length; i++) {
+    colorFactor = colorArray[i] / 255;
+    if (colorFactor <= 0.03928) {
+      colorFactor = colorFactor / 12.92;
+    } else {
+      colorFactor = Math.pow((colorFactor + 0.055) / 1.055, 2.4);
     }
-    return (colorArray[0] * 0.2126 + colorArray[1] * 0.7152 + colorArray[2] * 0.0722) + 0.05;
+    colorArray[i] = colorFactor;
+  }
+  return colorArray[0] * 0.2126 + colorArray[1] * 0.7152 + colorArray[2] * 0.0722 + 0.05;
 }
 
 export function colorToRGBA(col: string): Array<number> {
@@ -40,7 +40,7 @@ export function colorToRGBA(col: string): Array<number> {
   const ctx = canvas.getContext('2d');
 
   if (!ctx) {
-    throw new Error('2DRenderingContext not available');
+    return [0, 0, 0, 0];
   }
 
   ctx.clearRect(0, 0, 1, 1);
@@ -53,10 +53,10 @@ export function colorToRGBA(col: string): Array<number> {
   ctx.fillStyle = '#fff';
   ctx.fillStyle = col;
   if (computed !== ctx.fillStyle) {
-    throw new Error(`Invalid computed color: ${ctx.fillStyle}`);
+    return [0, 0, 0, 0];
   }
   ctx.fillRect(0, 0, 1, 1);
-  return [ ... ctx.getImageData(0, 0, 1, 1).data ];
+  return [...ctx.getImageData(0, 0, 1, 1).data];
 }
 
 export function contrast(rgb1: Array<number>, rgb2: Array<number>): number {

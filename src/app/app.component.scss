@@ -41,6 +41,11 @@ main {
     }
   }
 
+  .instructions {
+    cursor: default;
+    user-select: none;
+  }
+
   .reset {
     padding: 8px 32px;
     border-radius: 8px;
@@ -62,41 +67,7 @@ main {
 }
 
 footer {
-  text-align: center;
-  padding: 0 12px 12px 12px;
-
-  & > div {
-    overflow: hidden;
-    display: flex;
-    align-content: stretch;
-  }
-
-  input[type="number"]::-webkit-outer-spin-button,
-  input[type="number"]::-webkit-inner-spin-button {
-    display: none;
-  }
-
-  input[type="number"] {
-    -moz-appearance: textfield;
-    text-align: right;
-  }
-
-  .controls {
-    display: inline-block;
-    text-align: right;
-    flex: 1 1 auto;
-    max-width: 50%;
-    margin: 0;
-    padding: 0 8px 0 0;
-
-    mat-checkbox {
-      margin: 4px;
-    }
-
-    mat-form-field {
-      width: 100%;
-      max-width: 250px;
-      margin: 4px;
-    }
-  }
+  position: fixed;
+  bottom: 60px;
+  right: 60px;
 }
